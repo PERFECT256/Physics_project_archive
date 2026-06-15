@@ -74,8 +74,8 @@ if run_button or len(st.session_state.history) == 0:
     t_eval = np.linspace(t_span[0], t_span[1], 250)
     
     # Solve ODEs
-    sol_A = solve_ivp(ode_case_a, t_span, state_0, t_eval=t_eval, method='RK45')
-    sol_B = solve_ivp(ode_case_b, t_span, state_0, t_eval=t_eval, method='RK45')
+    sol_A = solve_ivp(ode_case_a, t_span, state_0, t_eval=t_eval, method='RK45', rtol=1e-9, atol=1e-9)
+    sol_B = solve_ivp(ode_case_b, t_span, state_0, t_eval=t_eval, method='RK45', rtol=1e-9, atol=1e-9)
     
     # Extract results
     theta_A, dot_A = sol_A.y
